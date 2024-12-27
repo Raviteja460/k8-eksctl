@@ -6,7 +6,7 @@ module "ec2_instance" {
   instance_type          = "t2.micro"
   #key_name               = "user1"
   #monitoring             = true
-  vpc_security_group_ids = [aws_security_group.allow_eksctl.id]
+  vpc_security_group_ids = [aws_security_group.allow_eksctl-1.id]
   subnet_id              = "subnet-0467f097d5acb9ba9" #replace your default subnet id
   user_data = file("workstation.sh")
   tags = {
@@ -15,8 +15,8 @@ module "ec2_instance" {
   }
 }
 
-resource "aws_security_group" "allow_eksctl" {
-  name        = "allow_eksctl"
+resource "aws_security_group" "allow_eksctl-1" {
+  name        = "allow_eksctl-1"
   description = "created for eksctl"
   tags = {
     Name = "allow_eksctl"
